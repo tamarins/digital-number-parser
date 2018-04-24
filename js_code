@@ -1,0 +1,59 @@
+"use strict";
+
+function myMain() {
+
+  var uDataTop = prompt("enter first line:");
+  var uDataMid = prompt("enter middle line:");
+  var uDataBot = prompt("enter bottom line:");
+
+  var topSplit = uDataTop.split("");								//converts user string into array of characters
+  var midSplit = uDataMid.split("");
+  var botSplit = uDataBot.split("");
+  
+  var topChunks = chunkBuilder(topSplit);						//converts array of characters into array
+  var midChunks = chunkBuilder(midSplit);						// of three-character chunks
+  var botChunks = chunkBuilder(botSplit);
+
+  alert(numCheck(topChunks[0],midChunks[0],botChunks[0])+
+  numCheck(topChunks[1],midChunks[1],botChunks[1])+
+  numCheck(topChunks[2],midChunks[2],botChunks[2])+
+  numCheck(topChunks[3],midChunks[3],botChunks[3])+
+  numCheck(topChunks[4],midChunks[4],botChunks[4])+
+  numCheck(topChunks[5],midChunks[5],botChunks[5])+
+  numCheck(topChunks[6],midChunks[6],botChunks[6])+
+  numCheck(topChunks[7],midChunks[7],botChunks[7])+
+  numCheck(topChunks[8],midChunks[8],botChunks[8]));
+  
+}
+
+function numCheck(string1, string2, string3) {
+
+  var num = "";
+  if (string1===" _ " && string2==="| |" && string3==="|_|") {num = 0}
+  if (string1==="   " && string2==="  |" && string3==="  |") {num = 1}
+  if (string1===" _ " && string2===" _|" && string3==="|_ ") {num = 2}
+  if (string1===" _ " && string2===" _|" && string3===" _|") {num = 3}
+  if (string1==="   " && string2==="|_|" && string3==="  |") {num = 4}
+  if (string1===" _ " && string2==="|_ " && string3===" _|") {num = 5}
+  if (string1===" _ " && string2==="|_ " && string3==="|_|") {num = 6}
+  if (string1===" _ " && string2==="  |" && string3==="  |") {num = 7}
+  if (string1===" _ " && string2==="|_|" && string3==="|_|") {num = 8}
+  if (string1===" _ " && string2==="|_|" && string3===" _|") {num = 9}
+
+return String(num);
+}
+
+function chunkBuilder (arr) {
+
+  var completeChunks = [];
+  var g = 0;
+  for (var i = 0; i<arr.length; i=i+3) {
+  completeChunks[g]=arr[i]+arr[i+1]+arr[i+2];
+  g++;
+  }
+  
+  return completeChunks;
+
+}
+
+myMain();
